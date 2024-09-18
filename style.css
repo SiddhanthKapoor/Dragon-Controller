@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #3674be ;
+    min-height: 100vh;
+    overflow: hidden;
+    transition: var(--all-transition);
+}
+
+body::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left:5.5%;
+    width: 800px;
+    height: 800px;
+    background: rgba(255, 255, 255, 0.696);
+    border-radius: 50%;
+    filter: blur(200px);
+
+}
+
+:root{
+    --all-transition:0.5s ease;
+    --opacity-transition:0.3s ease;   
+}
+.img-box{
+    position: absolute;
+    left: -40%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1300px;
+    height: 1300px;
+
+}
+
+.img-box .img-list{
+    height: inherit;
+    transform: rotate(-120deg);
+}
+
+.img-box .img-slider{
+    height: inherit;
+    transition: var(--all-transition);
+}
+
+.img-slider .img-item{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(calc(-360deg/ 6* var(--i))) scale(0.6);
+    transform-origin: 650px;
+    transition: var(--all-transition);
+
+}
+.img-slider .img-item.active{
+    transform: translateY(-50%) rotate(calc(-360deg/ 6* var(--i))) scale(1.125) translateX(-33%);
+    z-index: 1;
+}
+
+.img-item .item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--all-transition);
+}
+
+.img-item .item img {
+   transform: rotate(calc(360deg/ 6* var(--i)))  rotate(120deg);
+   filter: blur(8px);
+   transition: var(--all-transition);
+
+}
+.img-item.active .item img{
+filter: blur(0);
+}
+
+.info-box{
+position: absolute;
+right: 0;
+top: 50%;
+
+width: 800px;
+height: 800px;
+transform: translateX(100%);
+}
+.info-box.active{
+    display: block;
+    transform: translateX(0);
+    transform: translateY(-50%);
+}
+
+.info-box .info{
+    width: 100%;
+    height:100%;
+    padding: 0 70px;
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 40px 0 0 40px;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform var(--all-transition) , opacity var(--opacity-transition) ,box-shadow var(--all-transition)
+}
+
+.info-box .info.active{
+    transform: translateX(0);
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+
+}
+.info h2{
+    font-size: 50px;
+}
+
+.info h2:nth-child(2){
+    font-size: 50px;
+    margin: 20px 0;
+}
+
+.colors span{
+    margin:20px 0;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 15px;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.colors span:nth-child(1){
+    background-color: #3674be;
+}
+
+.colors span:nth-child(2){
+    background-color: #d26181;
+}
+.colors span:nth-child(3){
+    background-color: #ceb13d;
+}
+.colors span:nth-child(4){
+    background-color: #c6414c;
+}
+.colors span:nth-child(5){
+    background-color: #171f2b;
+}
+
+.colors span:nth-child(6){
+    background-color: #50aa61;
+}
+
+.colors span.active{
+    border:3px solid white;
+}
+
+.info p{
+    font-size: 16px;
+    margin: 20px 0 25px;
+}
+
+.btn{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width:160px;
+    height:47px;
+    background: white;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    text-decoration: none;
+    color:#333;
+    font-weight: 600;
+    margin-top: 30px;
+}
+
+.navigation{
+    display: flex;
+    position: absolute;
+    left: 20%;
+    bottom: 7%;
+    width: 200px;
+    justify-content: space-between;
+    z-index: 100;
+}
+
+.navigation span{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.137);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
